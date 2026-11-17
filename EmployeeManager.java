@@ -31,9 +31,7 @@ public class EmployeeManager {
         if (args[0].equals(Constants.LIST_ARG)) {
             System.out.println(Constants.LOADING_MESSAGE);
             try {
-                String line = readLineFromFile();
-                String[] employees = line.split(Constants.DELIMITER);
-                for (String employee : employees) {
+                for (String employee : readLineFromFile().split(Constants.DELIMITER)) {
                     System.out.println(employee);
                 }
             } catch (Exception exception) {
@@ -45,25 +43,21 @@ public class EmployeeManager {
                 String line = readLineFromFile();
                 System.out.println(line);
                 String[] employees = line.split(Constants.DELIMITER);
-                Random random = new Random();
-                int randomIndex = random.nextInt(employees.length);
-                System.out.println(employees[randomIndex]);
+                System.out.println(employees[new Random().nextInt(employees.length)]);
             } catch (Exception exception) {
             }
             System.out.println(Constants.LOADED_MESSAGE);
         } else if (args[0].contains(Constants.ADD_ARG)) {
             System.out.println(Constants.LOADING_MESSAGE);
             try {
-                String newEmployee = args[0].substring(1);
-                writeLineToFile(Constants.DELIMITER + " " + newEmployee, true);
+                writeLineToFile(Constants.DELIMITER + " " + args[0].substring(1), true);
             } catch (Exception exception) {
             }
             System.out.println(Constants.LOADED_MESSAGE);
         } else if (args[0].contains(Constants.SEARCH_ARG)) {
             System.out.println(Constants.LOADING_MESSAGE);
             try {
-                String line = readLineFromFile();
-                String[] employees = line.split(Constants.DELIMITER);
+                String[] employees = readLineFromFile().split(Constants.DELIMITER);
                 boolean found = false;
                 String searchName = args[0].substring(1);
                 for (int i = 0; i < employees.length && !found; i++) {
@@ -78,8 +72,7 @@ public class EmployeeManager {
         } else if (args[0].contains(Constants.COUNT_ARG)) {
             System.out.println(Constants.LOADING_MESSAGE);
             try {
-                String line = readLineFromFile();
-                char[] characters = line.toCharArray();
+                char[] characters = readLineFromFile().toCharArray();
                 boolean inWord = false;
                 int wordCount = 0;
                 for (char character : characters) {
@@ -99,8 +92,7 @@ public class EmployeeManager {
         } else if (args[0].contains(Constants.UPDATE_ARG)) {
             System.out.println(Constants.LOADING_MESSAGE);
             try {
-                String line = readLineFromFile();
-                String[] employees = line.split(Constants.DELIMITER);
+                String[] employees = readLineFromFile().split(Constants.DELIMITER);
                 String targetEmployee = args[0].substring(1);
                 for (int i = 0; i < employees.length; i++) {
                     if (employees[i].equals(targetEmployee)) {
@@ -114,11 +106,8 @@ public class EmployeeManager {
         } else if (args[0].contains(Constants.DELETE_ARG)) {
             System.out.println(Constants.LOADING_MESSAGE);
             try {
-                String line = readLineFromFile();
-                String[] employees = line.split(Constants.DELIMITER);
-                String targetEmployee = args[0].substring(1);
-                List<String> employeeList = new ArrayList<>(Arrays.asList(employees));
-                employeeList.remove(targetEmployee);
+                List<String> employeeList = new ArrayList<>(Arrays.asList(readLineFromFile().split(Constants.DELIMITER)));
+                employeeList.remove(args[0].substring(1));
                 writeLineToFile(String.join(Constants.DELIMITER, employeeList), false);
             } catch (Exception exception) {
             }
