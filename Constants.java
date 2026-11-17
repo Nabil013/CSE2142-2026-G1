@@ -15,6 +15,7 @@ public class Constants {
     public static final String UPDATED_MESSAGE = "Data Updated.";
     public static final String DELETED_MESSAGE = "Data Deleted.";
     public static final String FOUND_MESSAGE = "Employee found!";
+    public static final String NOT_FOUND_MESSAGE = "Employee not found!";
     public static final String UPDATED_TEXT = "Updated";
     public static final String INVALID_ARG_COUNT_MESSAGE = "Invalid number of arguments. Please provide exactly one argument.";
 }
