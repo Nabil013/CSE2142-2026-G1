@@ -1,10 +1,15 @@
-
 //File Name EmployeeManager.java
 import java.io.*;
 import java.util.*;
 
 public class EmployeeManager {
     public static void main(String[] args) {
+        // Check if the number of arguments is valid
+        if (args.length != 1) {
+            System.out.println("Invalid number of arguments. Please provide exactly one argument.");
+            return;
+        }
+
         // Check arguments
         if (args[0].equals("l")) {
             System.out.println("Loading data ...");
