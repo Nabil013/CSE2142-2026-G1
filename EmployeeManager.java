@@ -102,6 +102,8 @@ public class EmployeeManager {
             } catch (Exception exception) {
             }
             System.out.println(Constants.DELETED_MESSAGE);
+        } else {
+            System.out.println(Constants.INVALID_ARG_MESSAGE);
         }
     }
 }

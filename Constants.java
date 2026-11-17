@@ -18,4 +18,5 @@ public class Constants {
     public static final String NOT_FOUND_MESSAGE = "Employee not found!";
     public static final String UPDATED_TEXT = "Updated";
     public static final String INVALID_ARG_COUNT_MESSAGE = "Invalid number of arguments. Please provide exactly one argument.";
+    public static final String INVALID_ARG_MESSAGE = "Invalid argument! Please use: l, s, +<name>, ?<name>, c, u<name>, or d<name>.";
 }
